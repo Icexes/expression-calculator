@@ -18,9 +18,8 @@ function expressionCalculator(expr) {
     if (expr.match(/[()]/g)) {
         if (expr.match(/\(/g) == null || expr.match(/\)/g) == null || expr.match(/\(/g).length !== expr.match(/\)/g).length) throw "ExpressionError: Brackets must be paired"
     }
-    let newExpr = expr.replace(/\s/g, "")
     let numbers = expr.match(/\d+/g);
-    newExpr = newExpr.replace(/\d+/g, 'n')
+    let newExpr = expr.replace(/\s/g, "").replace(/\d+/g, 'n')
     let numbersStack = [];
     let operationStack = [];
     let priorities = {
